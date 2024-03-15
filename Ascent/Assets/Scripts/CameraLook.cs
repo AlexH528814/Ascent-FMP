@@ -16,7 +16,7 @@ public class CameraLook : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //Cursor stuff
     }
 
     // Update is called once per frame
