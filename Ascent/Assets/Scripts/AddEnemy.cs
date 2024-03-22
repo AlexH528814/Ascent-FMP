@@ -40,7 +40,10 @@ public class AddEnemy : MonoBehaviour
             if (enemy)
             {
                 Debug.Log("remove");
-                enemyManager.RemoveEnemy(enemy);
+                if (enemyManager.enemiesInTrigger.Contains(enemy))
+                {
+                    enemyManager.RemoveEnemy(enemy);
+                }
             }
         }
         

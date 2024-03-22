@@ -56,10 +56,13 @@ public class Gun : MonoBehaviour
             Debug.Log("enemy.name");
 
             var dir = enemy.transform.position - transform.position;
-
+            Debug.Log(dir);
             RaycastHit hit;
             if (Physics.Raycast(transform.position, dir, out hit, range * 1.5f, raycastLayerMask))
             {
+                Debug.Log("ray works");
+                Debug.Log(hit.transform);
+                Debug.Log(enemy.transform);
                 if (hit.transform == enemy.transform)
                 {
                     Debug.Log("hit");
@@ -70,6 +73,8 @@ public class Gun : MonoBehaviour
                     }
                     enemy.TakeDamage(damage);
                 }
+
+                
             }
         }
        // Debug.Log("shoot");

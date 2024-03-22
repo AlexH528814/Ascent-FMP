@@ -8,6 +8,8 @@ public class Enemy : MonoBehaviour
     public float enemyHealth = 2f;
 
     public GameObject gunHitEffect;
+ 
+    public GameObject EnemyParent;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +21,7 @@ public class Enemy : MonoBehaviour
     {
         if (enemyHealth <= 0)
         {            
-            Destroy(gameObject);
+            Destroy(EnemyParent);
         }
     }
 
