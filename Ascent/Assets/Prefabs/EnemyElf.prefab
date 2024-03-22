@@ -401,9 +401,9 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Radius: 0.06
   m_Center: {x: 0.0000031860675, y: 0.00038426035, z: 0.009135515}
@@ -419,7 +419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1948fe24817073d499f4937eabfc4548, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyManager: {fileID: 3827322468614213169, guid: 1ef820b3d1415394ba3ab2e77f5e388b, type: 3}
+  enemyManager: {fileID: 0}
   enemyHealth: 2
   gunHitEffect: {fileID: 7271677776227737784, guid: 48654b6f280ac0d49b19e3749fcc5de1, type: 3}
 --- !u!114 &1440869025522868512

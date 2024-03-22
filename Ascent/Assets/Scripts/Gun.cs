@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Gun : MonoBehaviour
@@ -62,7 +63,11 @@ public class Gun : MonoBehaviour
                 if (hit.transform == enemy.transform)
                 {
                     Debug.Log("hit");
-                    enemyManager.RemoveEnemy(enemy);
+
+                    if (enemyManager.enemiesInTrigger.Contains(enemy))
+                    {
+                        enemyManager.RemoveEnemy(enemy);
+                    }
                     enemy.TakeDamage(damage);
                 }
             }
@@ -71,27 +76,5 @@ public class Gun : MonoBehaviour
         cooldown = Time.time + fireRate;
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        Debug.Log("enter");
-        Enemy enemy = other.transform.GetComponent<Enemy>();
-
-        if (enemy)
-        {
-            Debug.Log("add");
-            enemyManager.AddEnemy(enemy);
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        Debug.Log("exit");
-        Enemy enemy = other.transform.GetComponent<Enemy>();
-
-        if (enemy)
-        {
-            Debug.Log("remove");
-            enemyManager.RemoveEnemy(enemy);
-        }
-    }
+    
 }

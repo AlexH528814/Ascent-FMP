@@ -10,6 +10,7 @@ public class EnemyAwareness : MonoBehaviour
     {
         if (other.transform.CompareTag("Player"))
         {
+            isAggro = true;
             GetComponent<SkinnedMeshRenderer>().material = AggroMat;
         }
     }
