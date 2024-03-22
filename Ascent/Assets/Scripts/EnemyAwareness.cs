@@ -7,7 +7,7 @@ public class EnemyAwareness : MonoBehaviour
     public float awarenessRadius;
     public Transform playerTransform;
     public Material AggroMat;
-    private Material Ogmat;
+    public Material Ogmat;
     public bool isAggro;
 
     private void Start()

@@ -10,10 +10,12 @@ public class Enemy : MonoBehaviour
     public GameObject gunHitEffect;
  
     public GameObject EnemyParent;
+
+    public Animator anim;
     // Start is called before the first frame update
     void Start()
     {
-        
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -23,6 +25,19 @@ public class Enemy : MonoBehaviour
         {            
             Destroy(EnemyParent);
         }
+
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            anim.SetBool("isWalking", true);
+        }
+
+        else
+        {
+            anim.SetBool("isWalking", false);
+
+        }
+
+
     }
 
     public void TakeDamage(float damage)
