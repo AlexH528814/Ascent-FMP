@@ -8,6 +8,7 @@ public class EnemyAI : MonoBehaviour
     public EnemyAwareness enemyAwareness;
     public Transform playerTransform;
     public NavMeshAgent enemyAgent;
+    public Animator anim;
 
     // Start is called before the first frame update
     void Start()
@@ -15,6 +16,7 @@ public class EnemyAI : MonoBehaviour
         playerTransform = FindObjectOfType<PlayerMovement>().transform;
        // enemyAwareness = GetComponent<EnemyAwareness>();
         enemyAgent = GetComponent<NavMeshAgent>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -22,9 +24,9 @@ public class EnemyAI : MonoBehaviour
     {
         if (enemyAwareness.isAggro)
         {
-       
+             
             enemyAgent.SetDestination(playerTransform.position);
-       
+            anim.SetBool("isWalking", true);
         }
        
     }
