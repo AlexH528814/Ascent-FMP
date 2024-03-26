@@ -34,10 +34,7 @@ public class Enemy : MonoBehaviour
         else
         {
             anim.SetBool("isWalking", false);
-
         }
-
-
     }
 
     public void TakeDamage(float damage)

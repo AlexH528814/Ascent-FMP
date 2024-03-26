@@ -3650,7 +3650,7 @@ GameObject:
   - component: {fileID: 2686848962619620766}
   - component: {fileID: 3590814910788204430}
   - component: {fileID: 6036192959115777456}
-  - component: {fileID: 5160894219549769794}
+  - component: {fileID: 1436431626380626136}
   - component: {fileID: 179145562426688730}
   - component: {fileID: 4545159376336782451}
   - component: {fileID: 8313692629754611161}
@@ -3862,8 +3862,8 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.0000031860545, y: 0.009135517, z: -0.00038426445}
     m_Extent: {x: 0.004531385, y: 0.009136745, z: 0.0021066896}
   m_DirtyAABB: 0
---- !u!64 &5160894219549769794
-MeshCollider:
+--- !u!136 &1436431626380626136
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3880,10 +3880,11 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 1
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 3288194047611950038, guid: 5989509b2807f5f43ac31f39dba2ca5c, type: 3}
+  serializedVersion: 2
+  m_Radius: 0.45683584
+  m_Height: 1.8436581
+  m_Direction: 1
+  m_Center: {x: 0.00032120643, y: 0.9208726, z: -0.041793633}
 --- !u!54 &179145562426688730
 Rigidbody:
   m_ObjectHideFlags: 0

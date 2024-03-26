@@ -13,23 +13,19 @@ public class EnemyAwareness : MonoBehaviour
     private void Start()
     {
        playerTransform = FindObjectOfType<PlayerMovement>().transform;
-
-      
-
     }
 
     private void Update()
     {
         var dist = Vector3.Distance(transform.position, playerTransform.position);
 
-       // Debug.Log(dist);
-       // Debug.Log(awarenessRadius);
+       //Debug.Log(dist);
+       //Debug.Log(awarenessRadius);
 
         if (dist < awarenessRadius)
         {
-           // Debug.Log("gone aggro");
+           //Debug.Log("gone aggro");
             isAggro = true;
-            Ogmat = GetComponent<SkinnedMeshRenderer>().material;
             GetComponent<SkinnedMeshRenderer>().material = AggroMat;
         }
 
@@ -41,6 +37,4 @@ public class EnemyAwareness : MonoBehaviour
 
         transform.position = gameObject.GetComponentInParent<Transform>().position;
     }
-
-    
 }

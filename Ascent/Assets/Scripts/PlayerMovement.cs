@@ -14,8 +14,6 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 movementVector;
     private float Gravity = -10f;
 
-    
-
     // Start is called before the first frame update
     void Start()
     {
@@ -50,7 +48,6 @@ public class PlayerMovement : MonoBehaviour
             isWalking = false;
         }
 
-
         movementVector = (inputVector * Speed) + (Vector3.up * Gravity);
         
     }
@@ -59,7 +56,5 @@ public class PlayerMovement : MonoBehaviour
     {
         controller.Move(movementVector * Time.deltaTime);
     }
-
-   
 }
 

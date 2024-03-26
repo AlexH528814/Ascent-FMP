@@ -8,7 +8,7 @@ public class AddEnemy : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("enter");
+        //Debug.Log("enter");
 
         if (other.isTrigger)
         {
@@ -19,14 +19,14 @@ public class AddEnemy : MonoBehaviour
 
         if (enemy)
         {
-            Debug.Log("add");
+            //Debug.Log("add");
             enemyManager.AddEnemy(enemy);
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        Debug.Log("exit");
+        //Debug.Log("exit");
 
         if (other.isTrigger)
         {
@@ -39,7 +39,7 @@ public class AddEnemy : MonoBehaviour
 
             if (enemy)
             {
-                Debug.Log("remove");
+                //Debug.Log("remove");
                 if (enemyManager.enemiesInTrigger.Contains(enemy))
                 {
                     enemyManager.RemoveEnemy(enemy);

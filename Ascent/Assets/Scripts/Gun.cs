@@ -21,7 +21,10 @@ public class Gun : MonoBehaviour
 
     public LayerMask enemyLayerMask;
     public LayerMask raycastLayerMask;
-    
+
+    public GameObject gunShotEffect;
+    public Transform gunShotTransform;
+
 
     // Start is called before the first frame update
     void Start()
@@ -30,20 +33,23 @@ public class Gun : MonoBehaviour
         gunTrigger.size = new Vector3(1, verticalRange, range);
         gunTrigger.center = new Vector3(0, 0, range * 0.5f);
         currentAmmo = maxAmmo;
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && Time.time > cooldown && currentAmmo > 0)
+        if (currentAmmo > maxAmmo)
         {
-          //  Debug.Log("shoot");
-            Fire();
-            currentAmmo--;
+            currentAmmo = maxAmmo;
         }
 
-
+        if (Input.GetMouseButtonDown(0) && Time.time > cooldown && currentAmmo > 0)
+        {
+            //Debug.Log("shoot");
+            currentAmmo--;
+            Instantiate(gunShotEffect, gunShotTransform.position, Quaternion.identity, gunShotTransform);
+            Fire();
+        }
     }
 
     void Fire()
@@ -53,50 +59,48 @@ public class Gun : MonoBehaviour
 
         foreach (var enemyCollider in enemyColliders)
         {
-          //  Debug.Log("Aggro");
+          //Debug.Log("Aggro");
             enemyCollider.GetComponent<EnemyAwareness>().isAggro = true;
         }
      
-       // Debug.Log("shot");
+       //Debug.Log("shot");
         foreach (var enemy in enemyManager.enemiesInTrigger)
         {
-           // Debug.Log("enemy.name");
-
+           //Debug.Log("enemy.name");
             var dir = enemy.transform.position - transform.position;
             //Debug.Log(dir);
             RaycastHit hit;
             if (Physics.Raycast(transform.position, dir, out hit, range * 1.5f, raycastLayerMask))
             {
-               // Debug.Log("ray works");
-                //Debug.Log(hit.transform);
-               // Debug.Log(enemy.transform);
+               //Debug.Log("ray works");
+                Debug.Log(hit.transform);
+                Debug.Log(hit.transform.name);
+                Debug.Log(enemy.transform);
                 if (hit.transform == enemy.transform)
                 {
-                   // Debug.Log("hit");
+                   //Debug.Log("hit");
 
                     if (enemyManager.enemiesInTrigger.Contains(enemy))
                     {
                         enemyManager.RemoveEnemy(enemy);
                     }
                     enemy.TakeDamage(damage);              
-                }
-
-                
+                }  
             }
         }
-        // Debug.Log("shoot");
-        Debug.Log(cooldown);
+        //Debug.Log("shoot");
+        Debug.Log($"cooldown is {cooldown}");
         cooldown = Time.time + fireRate;
-        Debug.Log(cooldown);
+        Debug.Log($"cooldown is {cooldown}");
     }
 
     public void GiveAmmo(int amount, GameObject pickup)
     {
-        if (amount > maxAmmo)
+        if (currentAmmo < maxAmmo)
         {
-            print($" Current armor = {currentAmmo}");
+            print($" Current ammo = {currentAmmo}");
             currentAmmo += amount;
-            print($" New armor = {currentAmmo}");
+            print($" New ammo = {currentAmmo}");
             Destroy(pickup);
         }
     }

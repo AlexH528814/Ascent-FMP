@@ -14,7 +14,7 @@ public class EnemyAI : MonoBehaviour
     void Start()
     {
         playerTransform = FindObjectOfType<PlayerMovement>().transform;
-       // enemyAwareness = GetComponent<EnemyAwareness>();
+       //enemyAwareness = GetComponent<EnemyAwareness>();
         enemyAgent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
     }
@@ -23,11 +23,9 @@ public class EnemyAI : MonoBehaviour
     void Update()
     {
         if (enemyAwareness.isAggro)
-        {
-             
+        { 
             enemyAgent.SetDestination(playerTransform.position);
             anim.SetBool("isWalking", true);
         }
-       
     }
 }
