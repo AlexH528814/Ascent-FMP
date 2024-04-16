@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+       
         anim = GetComponent<Animator>();
     }
 
@@ -22,7 +23,8 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         if (enemyHealth <= 0)
-        {            
+        {
+            
             Destroy(EnemyParent);
         }
 
@@ -39,7 +41,10 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        enemyManager.totalenemies--;
         Instantiate(gunHitEffect, transform.position, Quaternion.identity);
         enemyHealth -= damage;
+        enemyManager.totalenemies--;
+
     }
 }

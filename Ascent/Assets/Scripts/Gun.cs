@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using UnityEditor.PackageManager;
 using UnityEngine;
 
 public class Gun : MonoBehaviour
@@ -13,6 +9,7 @@ public class Gun : MonoBehaviour
     public float gunShotRadius = 20f;
     public float currentAmmo;
     public float maxAmmo = 25;
+    public bool hasShot;
 
     private float cooldown;
 
@@ -25,10 +22,15 @@ public class Gun : MonoBehaviour
     public GameObject gunShotEffect;
     public Transform gunShotTransform;
 
+    
+
 
     // Start is called before the first frame update
     void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
         gunTrigger = GetComponent<BoxCollider>();
         gunTrigger.size = new Vector3(1, verticalRange, range);
         gunTrigger.center = new Vector3(0, 0, range * 0.5f);
@@ -45,6 +47,7 @@ public class Gun : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && Time.time > cooldown && currentAmmo > 0)
         {
+            hasShot = true;
             //Debug.Log("shoot");
             currentAmmo--;
             Instantiate(gunShotEffect, gunShotTransform.position, Quaternion.identity, gunShotTransform);
@@ -84,7 +87,11 @@ public class Gun : MonoBehaviour
                     {
                         enemyManager.RemoveEnemy(enemy);
                     }
-                    enemy.TakeDamage(damage);              
+                    enemy.TakeDamage(damage); 
+                    if (enemy.enemyHealth <= 0)
+                    {
+                        enemyManager.totalenemies--;
+                    }
                 }  
             }
         }
