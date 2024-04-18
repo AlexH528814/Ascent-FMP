@@ -39,10 +39,15 @@ public class Buttons : MonoBehaviour
 
     private void Start()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
         if (SceneManager.GetActiveScene().name == "EndScene")
         {
             StartCoroutine(NewLevelFadeIn(1.5f, NewLevelText));
         }
+
+
     }
 
 
