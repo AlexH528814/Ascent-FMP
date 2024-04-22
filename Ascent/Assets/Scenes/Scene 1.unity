@@ -2862,10 +2862,17 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1617873405}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< Updated upstream
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -581, y: 346}
   m_SizeDelta: {x: -1240, y: -760}
+=======
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 180, y: 319}
+  m_SizeDelta: {x: 200, y: 50}
+>>>>>>> Stashed changes
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &582940736
 MonoBehaviour:
@@ -2950,7 +2957,11 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
+<<<<<<< Updated upstream
   m_margin: {x: 0, y: 0, z: -1157.0153, w: -250.57014}
+=======
+  m_margin: {x: 0, y: 0, z: -1096.2137, w: -46.563416}
+>>>>>>> Stashed changes
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -11814,9 +11825,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2050779724233104423, guid: db620bfc8d5c9a7449c461e15bedf2c9, type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 2117146817}
+    - target: {fileID: 2050779724233104423, guid: db620bfc8d5c9a7449c461e15bedf2c9, type: 3}
       propertyPath: enemyManager
       value: 
       objectReference: {fileID: 450124329}
+    - target: {fileID: 3899192866643875699, guid: db620bfc8d5c9a7449c461e15bedf2c9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5433639228672298439, guid: db620bfc8d5c9a7449c461e15bedf2c9, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.208
