@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector3 inputVector;
     private Vector3 movementVector;
-    private float Gravity = -10f;
+    private float Gravity = -9.81f;
 
     // Start is called before the first frame update
     void Start()

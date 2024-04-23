@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class Gun : MonoBehaviour
@@ -12,7 +13,8 @@ public class Gun : MonoBehaviour
     public float maxAmmo = 25;
     public bool hasShot;
 
-    private float cooldown;
+    private bool cooldowncheck;
+    public float cooldown;
 
     private BoxCollider gunTrigger;
     public EnemyManager enemyManager;
@@ -47,7 +49,7 @@ public class Gun : MonoBehaviour
             currentAmmo = maxAmmo;
         }
 
-        if (Input.GetMouseButtonDown(0) && Time.time > cooldown && currentAmmo > 0)
+        if (Input.GetMouseButtonDown(0) && !cooldowncheck && currentAmmo > 0)
         {
             hasShot = true;
             //Debug.Log("shoot");
@@ -55,6 +57,7 @@ public class Gun : MonoBehaviour
             StartCoroutine(AnimateGunShot());
             Instantiate(gunShotEffect, gunShotTransform.position, Quaternion.identity, gunShotTransform);
             Fire();
+            StartCoroutine(Cooldown(cooldown));
         }
     }
 
@@ -65,19 +68,17 @@ public class Gun : MonoBehaviour
 
         foreach (var enemyCollider in enemyColliders)
         {
-          //Debug.Log("Aggro");
             enemyCollider.GetComponent<EnemyAwareness>().isAggro = true;
         }
             RaycastHit hit;
+
+         Transform playertransform = FindObjectOfType<Camera>().transform;
         
-            if (Physics.Raycast(transform.position, transform.forward, out hit, range * 1.5f, raycastLayerMask))
+            if (Physics.Raycast(playertransform.position, playertransform.forward, out hit, range * 1.5f, raycastLayerMask))
             {
                 Enemy enemy = hit.transform.GetComponent<Enemy>();
 
-               //Debug.Log("ray works");
-                Debug.Log(hit.transform);
-                Debug.Log(hit.transform.name);
-                Debug.Log(enemy.transform);
+              
                 if (hit.transform == enemy.transform)
                 {
                     enemy.TakeDamage(damage); 
@@ -87,11 +88,7 @@ public class Gun : MonoBehaviour
                     }
                 }  
             }
-        //}
-        //Debug.Log("shoot");
-        Debug.Log($"cooldown is {cooldown}");
-        cooldown = Time.time + fireRate;
-        Debug.Log($"cooldown is {cooldown}");
+        
     }
 
     public void GiveAmmo(int amount, GameObject pickup)
@@ -110,5 +107,12 @@ public class Gun : MonoBehaviour
         anim.Play("GunRecoil");
         yield return new WaitForSeconds(0.35f);
         anim.Play("GunIdle");
+    }
+
+    public IEnumerator Cooldown(float cooldown)
+    {
+        cooldowncheck = true;
+        yield return new WaitForSeconds(cooldown);
+        cooldowncheck = false;
     }
 }

@@ -28,11 +28,11 @@ public class UpdateText : MonoBehaviour
     void Update()
     {
         text.text = $"Health = {playerHealth.health}/{playerHealth.maxHealth}\n" +
-            $"Armor = {playerHealth.armor}/{playerHealth.maxArmor}\n" +
-            $"Ammo = {gun.currentAmmo}/{gun.maxAmmo}\n" + 
-            $"Enemies remaining: {enemyManager.totalenemies}";
+                    $"Armor = {playerHealth.armor}/{playerHealth.maxArmor}\n" +
+                    $"Ammo = {gun.currentAmmo}/{gun.maxAmmo}\n" + 
+                    $"Enemies remaining: {enemyManager.totalenemies}";
 
-        Debug.Log(enemyManager.totalenemies);
+       // Debug.Log(enemyManager.totalenemies);
 
         if (enemyManager.totalenemies <= 0 && gun.hasShot)
         {
