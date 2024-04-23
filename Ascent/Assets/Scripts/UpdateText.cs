@@ -12,7 +12,11 @@ public class UpdateText : MonoBehaviour
 
     public bool endGame;
 
-    public TMP_Text text;
+    public TMP_Text AmmoText;
+    public TMP_Text HealthText;
+    public TMP_Text ArmorText;
+    public TMP_Text WeaponText;
+
 
     public TMP_Text endText;
 
@@ -27,12 +31,20 @@ public class UpdateText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        text.text = $"Health = {playerHealth.health}/{playerHealth.maxHealth}\n" +
-                    $"Armor = {playerHealth.armor}/{playerHealth.maxArmor}\n" +
-                    $"Ammo = {gun.currentAmmo}/{gun.maxAmmo}\n" + 
-                    $"Enemies remaining: {enemyManager.totalenemies}";
+        /* text.text = $"Health = {playerHealth.health}/{playerHealth.maxHealth}\n" +
+                     $"Armor = {playerHealth.armor}/{playerHealth.maxArmor}\n" +
+                     $"Ammo = {gun.currentAmmo}/{gun.maxAmmo}\n" + 
+                     $"Enemies remaining: {enemyManager.totalenemies}";
 
-       // Debug.Log(enemyManager.totalenemies);
+        // Debug.Log(enemyManager.totalenemies);
+        */
+
+        HealthText.text = $"{playerHealth.health}/{playerHealth.maxHealth}";
+        ArmorText.text = $"{playerHealth.armor}/{playerHealth.maxArmor}";
+
+        AmmoText.text = $"{gun.currentAmmo}/{gun.maxAmmo}";
+        WeaponText.text = $"{gun.weapon}";
+
 
         if (enemyManager.totalenemies <= 0 && gun.hasShot)
         {
