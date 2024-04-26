@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -10,7 +12,12 @@ public class Buttons : MonoBehaviour
     public GameObject levelSelect;
     public GameObject mainMenu;
     public GameObject optionsMenu;
-    public Image NewLevelText;
+    public GameObject deathScreen;
+    public TMP_Text NewLevelText;
+    public Slider sens;
+    public Slider volume;
+
+    public Button[] lockedLevels;
 
     public void MenuClick()
     {
@@ -39,6 +46,10 @@ public class Buttons : MonoBehaviour
 
     private void Start()
     {
+        sens.value = PublicVars.mouseSens;
+        volume.value = PublicVars.totalVolume;
+        Debug.Log(PublicVars.mouseSens);
+
 
         if (Cursor.lockState == CursorLockMode.Locked)
         {
@@ -47,11 +58,36 @@ public class Buttons : MonoBehaviour
         }
 
 
-        if (SceneManager.GetActiveScene().name == "EndScene")
+        if (PublicVars.endLevelOne && !PublicVars.LevelTwoUnlocked)
         {
             StartCoroutine(NewLevelFadeIn(1.5f, NewLevelText));
+            PublicVars.LevelTwoUnlocked = true;
+            lockedLevels[0].interactable = true;
+
+            
         }
 
+        if (PublicVars.playerDied)
+        {
+            mainMenu.SetActive(false);
+            deathScreen.SetActive(true);
+        }
+
+    }
+
+    public void Update()
+    {
+       // Debug.Log(PublicVars.mouseSens);
+    }
+
+    public void SensSlider()
+    {
+        PublicVars.mouseSens = sens.value;
+    }
+
+    public void VolumeSlider()
+    {
+        PublicVars.totalVolume = volume.value;
     }
 
 
@@ -62,17 +98,25 @@ public class Buttons : MonoBehaviour
 
 
 
-
-
-
-
-
-    public IEnumerator NewLevelFadeIn(float t, Image i)
+    public IEnumerator NewLevelFadeIn(float t, TMP_Text i)
     {
+        i.gameObject.SetActive(true);
         i.color = new Color(i.color.r, i.color.g, i.color.b, 0);
         while (i.color.a < 1.0f)
         {
             i.color = new Color(i.color.r, i.color.g, i.color.b, i.color.a + (Time.deltaTime / t));
+            yield return null;
+        }
+       // yield return new WaitForSeconds(1.5f);
+        StartCoroutine(NewLevelFadeOut(t, i));
+        // i.gameObject.SetActive(false);
+    }
+
+    public IEnumerator NewLevelFadeOut(float t, TMP_Text i)
+    {
+        while (i.color.a > 0.0f)
+        {
+            i.color = new Color(i.color.r, i.color.g, i.color.b, i.color.a - (Time.deltaTime / t));
             yield return null;
         }
         yield return new WaitForSeconds(1.5f);

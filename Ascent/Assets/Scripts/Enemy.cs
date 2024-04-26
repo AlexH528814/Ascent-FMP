@@ -27,16 +27,6 @@ public class Enemy : MonoBehaviour
             
             Destroy(EnemyParent);
         }
-
-        if (Input.GetKey(KeyCode.Escape))
-        {
-            anim.SetBool("isWalking", true);
-        }
-
-        else
-        {
-            anim.SetBool("isWalking", false);
-        }
     }
 
     public void TakeDamage(float damage)

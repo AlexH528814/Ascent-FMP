@@ -10,7 +10,6 @@ public class UpdateText : MonoBehaviour
     private Gun gun; 
     private EnemyManager enemyManager;
 
-    public bool endGame;
 
     public TMP_Text AmmoText;
     public TMP_Text HealthText;
@@ -18,11 +17,13 @@ public class UpdateText : MonoBehaviour
     public TMP_Text WeaponText;
 
 
+    public TMP_Text goalText;
     public TMP_Text endText;
 
     // Start is called before the first frame update
     void Start()
     {
+        
         playerHealth = FindObjectOfType<PlayerHealth>().GetComponent<PlayerHealth>();
         gun = FindObjectOfType<Gun>().GetComponent<Gun>();
         enemyManager = FindObjectOfType<EnemyManager>();
@@ -31,13 +32,6 @@ public class UpdateText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /* text.text = $"Health = {playerHealth.health}/{playerHealth.maxHealth}\n" +
-                     $"Armor = {playerHealth.armor}/{playerHealth.maxArmor}\n" +
-                     $"Ammo = {gun.currentAmmo}/{gun.maxAmmo}\n" + 
-                     $"Enemies remaining: {enemyManager.totalenemies}";
-
-        // Debug.Log(enemyManager.totalenemies);
-        */
 
         HealthText.text = $"{playerHealth.health}/{playerHealth.maxHealth}";
         ArmorText.text = $"{playerHealth.armor}/{playerHealth.maxArmor}";
@@ -45,23 +39,26 @@ public class UpdateText : MonoBehaviour
         AmmoText.text = $"{gun.currentAmmo}/{gun.maxAmmo}";
         WeaponText.text = $"{gun.weapon}";
 
+        goalText.text = $"Defeat All Enemies: {enemyManager.currentenemies}/{enemyManager.totalenemies}";
 
-        if (enemyManager.totalenemies <= 0 && gun.hasShot)
+
+        if (enemyManager.currentenemies <= 0 && gun.hasShot)
         {
             StartCoroutine(EndLevel());
         }
 
-        if (endGame && Input.GetKeyDown(KeyCode.Q))
+        if (PublicVars.endLevelOne && Input.GetKeyDown(KeyCode.Q))
         {
-            SceneManager.LoadScene("EndScene");
+            SceneManager.LoadScene("MenuScene");
         }
 
     }
 
     public IEnumerator EndLevel()
     {
+        goalText.gameObject.SetActive(false);
         endText.gameObject.SetActive(true);
-        yield return new WaitForSeconds(1);
-        endGame = true;
+        yield return new WaitForSeconds(0.5f);
+        PublicVars.endLevelOne = true;
     }
 }

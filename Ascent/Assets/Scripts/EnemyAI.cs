@@ -25,7 +25,7 @@ public class EnemyAI : MonoBehaviour
         if (enemyAwareness.isAggro)
         { 
             enemyAgent.SetDestination(playerTransform.position);
-            anim.SetBool("isWalking", true);
+           
         }
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraLook : MonoBehaviour
 {
-    public float sensitivity = 1.5f;
+    public float sensitivity;
     public float smoothing = 10.0f;
 
     private float xMousePos;
@@ -17,6 +17,8 @@ public class CameraLook : MonoBehaviour
     void Start()
     {
         //Cursor stuff
+
+        sensitivity = PublicVars.mouseSens;
     }
 
     // Update is called once per frame

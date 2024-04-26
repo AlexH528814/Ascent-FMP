@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.SceneManagement;
 using Scene = UnityEngine.SceneManagement.Scene;
 
@@ -11,9 +12,14 @@ public class PlayerHealth : MonoBehaviour
     public int maxArmor;
     public int armor;
 
+    public PostProcessVolume postProcess;
+
     // Start is called before the first frame update
     void Start()
     {
+        PublicVars.playerDied = false;
+        postProcess = FindObjectOfType<PostProcessVolume>();
+
         health = maxHealth;
         armor = maxArmor;
     }
@@ -33,9 +39,19 @@ public class PlayerHealth : MonoBehaviour
             health = maxHealth;
         }
 
+        if (health < 0)
+        {
+            health = 0;
+        }
+
         if (armor > maxArmor)
         {
             armor = maxArmor;
+        }
+
+        if (armor < 0)
+        {
+            armor = 0;
         }
     }
 
@@ -90,9 +106,10 @@ public class PlayerHealth : MonoBehaviour
 
     IEnumerator Die()
     {
+        PublicVars.playerDied = true;
         this.GetComponent<PlayerMovement>().enabled = false;
         yield return new WaitForSeconds(1f);
         Scene currentScene = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(currentScene.name);
+        SceneManager.LoadScene("MenuScene");
     }
 }

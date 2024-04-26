@@ -72,25 +72,27 @@ public class Gun : MonoBehaviour
         {
             enemyCollider.GetComponent<EnemyAwareness>().isAggro = true;
         }
-            RaycastHit hit;
+        RaycastHit hit;
 
-         Transform playertransform = FindObjectOfType<Camera>().transform;
-        
-            if (Physics.Raycast(playertransform.position, playertransform.forward, out hit, range * 1.5f, raycastLayerMask))
+        Transform playertransform = FindObjectOfType<Camera>().transform;
+
+        if (Physics.Raycast(playertransform.position, playertransform.forward, out hit, range * 1.5f, raycastLayerMask))
+        {
+            Enemy enemy = hit.transform.GetComponent<Enemy>();
+
+            if (enemy != null)
             {
-                Enemy enemy = hit.transform.GetComponent<Enemy>();
-
-              
                 if (hit.transform == enemy.transform)
                 {
-                    enemy.TakeDamage(damage); 
+                    enemy.TakeDamage(damage);
                     if (enemy.enemyHealth <= 0)
                     {
-                        enemyManager.totalenemies--;
+                        enemyManager.currentenemies--;
                     }
-                }  
+                }
             }
-        
+
+        }
     }
 
     public void GiveAmmo(int amount, GameObject pickup)

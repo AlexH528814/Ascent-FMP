@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class EnemyManager : MonoBehaviour
 {
     public int totalenemies;
+    public int currentenemies;
 
     public void Start()
     {
@@ -15,6 +16,8 @@ public class EnemyManager : MonoBehaviour
         Enemy[] enemies = FindObjectsOfType<Enemy>();
 
         foreach (Enemy enemy in enemies) { totalenemies++; }
+
+        currentenemies = totalenemies;
     }
 
     private void Update()
