@@ -29,6 +29,10 @@ public class Gun : MonoBehaviour
 
     public string weapon = "Mauser";
 
+    public AudioSource gunShotClip;
+    public AudioSource enemyHitSFX;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -40,7 +44,9 @@ public class Gun : MonoBehaviour
         gunTrigger.size = new Vector3(1, verticalRange, range);
         gunTrigger.center = new Vector3(0, 0, range * 0.5f);
         currentAmmo = maxAmmo;
-
+        // gunShotClip = GetComponent<AudioSource>();
+        enemyHitSFX.volume = PublicVars.sfxVolume;
+        gunShotClip.volume = PublicVars.sfxVolume;
     }
 
     // Update is called once per frame
@@ -84,6 +90,7 @@ public class Gun : MonoBehaviour
             {
                 if (hit.transform == enemy.transform)
                 {
+                    enemyHitSFX.Play();
                     enemy.TakeDamage(damage);
                     if (enemy.enemyHealth <= 0)
                     {
@@ -109,6 +116,7 @@ public class Gun : MonoBehaviour
     public IEnumerator AnimateGunShot()
     {
         anim.Play("GunRecoil");
+        gunShotClip.Play();
         yield return new WaitForSeconds(0.35f);
         anim.Play("GunIdle");
     }

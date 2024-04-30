@@ -32,7 +32,8 @@ public class UpdateText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        Debug.Log(PublicVars.sfxVolume);
+        Debug.Log(PublicVars.musicVolume);
         HealthText.text = $"{playerHealth.health}/{playerHealth.maxHealth}";
         ArmorText.text = $"{playerHealth.armor}/{playerHealth.maxArmor}";
 
@@ -49,6 +50,7 @@ public class UpdateText : MonoBehaviour
 
         if (PublicVars.endLevelOne && Input.GetKeyDown(KeyCode.Q))
         {
+           
             SceneManager.LoadScene("MenuScene");
         }
 

@@ -15,7 +15,8 @@ public class Buttons : MonoBehaviour
     public GameObject deathScreen;
     public TMP_Text NewLevelText;
     public Slider sens;
-    public Slider volume;
+    public Slider sfxvolume;
+    public Slider musicvolume;
 
     public Button[] lockedLevels;
 
@@ -47,7 +48,8 @@ public class Buttons : MonoBehaviour
     private void Start()
     {
         sens.value = PublicVars.mouseSens;
-        volume.value = PublicVars.totalVolume;
+        musicvolume.value = PublicVars.musicVolume;
+        sfxvolume.value = PublicVars.sfxVolume;
         Debug.Log(PublicVars.mouseSens);
 
 
@@ -62,9 +64,6 @@ public class Buttons : MonoBehaviour
         {
             StartCoroutine(NewLevelFadeIn(1.5f, NewLevelText));
             PublicVars.LevelTwoUnlocked = true;
-            lockedLevels[0].interactable = true;
-
-            
         }
 
         if (PublicVars.playerDied)
@@ -77,7 +76,12 @@ public class Buttons : MonoBehaviour
 
     public void Update()
     {
-       // Debug.Log(PublicVars.mouseSens);
+        if (PublicVars.LevelTwoUnlocked)
+            lockedLevels[0].interactable = true;
+
+        Debug.Log(PublicVars.sfxVolume);
+        Debug.Log(PublicVars.musicVolume);
+        // Debug.Log(PublicVars.mouseSens);
     }
 
     public void SensSlider()
@@ -85,10 +89,18 @@ public class Buttons : MonoBehaviour
         PublicVars.mouseSens = sens.value;
     }
 
-    public void VolumeSlider()
+    public void MusicSlider()
     {
-        PublicVars.totalVolume = volume.value;
+        PublicVars.musicVolume = musicvolume.value;
     }
+
+    public void SFXSlider()
+    {
+        PublicVars.sfxVolume = sfxvolume.value;
+    }
+
+
+
 
 
 
