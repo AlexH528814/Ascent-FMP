@@ -1,0 +1,109 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!49 &4900000
+TextAsset:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: mbs-pack-descriptor
+  m_Script: "{\n    \"guid\": \"940000ed708b425189b0a58e1d0a38d7\",\n    \"_name\":
+    \"Castle Build\",\n    \"_wallGroups\": [\n        {\n            \"guid\": \"88bd0945b3c047d0abb44820368db44c\",\n           
+    \"name\": \"Blank Walls\",\n            \"_modules\": [\n                {\n                   
+    \"guid\": \"2f03c31883b44dbfad2f0ecbabc46f8f\",\n                    \"name\":
+    \"Blank Wall No Window\",\n                    \"prefabs\": [\n                       
+    {\n                            \"fileID\": 124164,\n                           
+    \"guid\": \"e38067ccaff52424db35c2958d80cb11\",\n                           
+    \"type\": 3\n                        },\n                        {\n                           
+    \"instanceID\": 0\n                        }\n                    ]\n               
+    },\n                {\n                    \"guid\": \"baf358cef334404ba807060d722b417e\",\n                   
+    \"name\": \"Corner Wall\",\n                    \"prefabs\": [\n                       
+    {\n                            \"fileID\": 128926,\n                           
+    \"guid\": \"c83073190e4a3614b9dbac2cf9c47f32\",\n                           
+    \"type\": 3\n                        },\n                        {\n                           
+    \"instanceID\": 0\n                        }\n                    ]\n               
+    },\n                {\n                    \"guid\": \"969e8f81599546e19551c7a4dd6703fe\",\n                   
+    \"name\": \"Pillar 1\",\n                    \"prefabs\": [\n                       
+    {\n                            \"fileID\": 154658,\n                           
+    \"guid\": \"7250e3ee64608cf4ebd2df16b04e2e4b\",\n                           
+    \"type\": 3\n                        },\n                        {\n                           
+    \"instanceID\": 0\n                        }\n                    ]\n               
+    },\n                {\n                    \"guid\": \"d74630e1d33045dab30123017439dac3\",\n                   
+    \"name\": \"Pillar 2\",\n                    \"prefabs\": [\n                       
+    {\n                            \"fileID\": 144706,\n                           
+    \"guid\": \"fb3f840c826314847ba67aaf7e4aef4e\",\n                           
+    \"type\": 3\n                        },\n                        {\n                           
+    \"instanceID\": 0\n                        }\n                    ]\n               
+    },\n                {\n                    \"guid\": \"d9f551e0fda9487a888c5067c584f005\",\n                   
+    \"name\": \"Small Pillar 1\",\n                    \"prefabs\": [\n                       
+    {\n                            \"fileID\": 155060,\n                           
+    \"guid\": \"f18c80e40f3eae04a943a2e61d870d14\",\n                           
+    \"type\": 3\n                        },\n                        {\n                           
+    \"instanceID\": 0\n                        }\n                    ]\n               
+    },\n                {\n                    \"guid\": \"cab0a7ef083441928a439949ac20b498\",\n                   
+    \"name\": \"Small Pillar 2\",\n                    \"prefabs\": [\n                       
+    {\n                            \"fileID\": 143666,\n                           
+    \"guid\": \"720d5674259cf2e4f9c0bc8698ed5c17\",\n                           
+    \"type\": 3\n                        },\n                        {\n                           
+    \"instanceID\": 0\n                        }\n                    ]\n               
+    }\n            ]\n        },\n        {\n            \"guid\": \"bb5c6d3101164e64bc2a064de00ee807\",\n           
+    \"name\": \"Walls With Stuff\",\n            \"_modules\": [\n               
+    {\n                    \"guid\": \"fccdea1c32dc4f988db17660b2d1c94d\",\n                   
+    \"name\": \"Wall Window 1\",\n                    \"prefabs\": [\n                       
+    {\n                            \"fileID\": 144752,\n                           
+    \"guid\": \"b79d1646853934f4dad1e987cd05b119\",\n                           
+    \"type\": 3\n                        },\n                        {\n                           
+    \"instanceID\": 0\n                        }\n                    ]\n               
+    },\n                {\n                    \"guid\": \"47ecda01587948f9a0cd4707866e5365\",\n                   
+    \"name\": \"Window Wall 2\",\n                    \"prefabs\": [\n                       
+    {\n                            \"fileID\": 114202,\n                           
+    \"guid\": \"15a08d7d20037d54a9c4a4a557df23e4\",\n                           
+    \"type\": 3\n                        },\n                        {\n                           
+    \"instanceID\": 0\n                        }\n                    ]\n               
+    },\n                {\n                    \"guid\": \"c841f26d845848dd8a7950feab4d4847\",\n                   
+    \"name\": \"Window Wall 3\",\n                    \"prefabs\": [\n                       
+    {\n                            \"fileID\": 192454,\n                           
+    \"guid\": \"edf36f15892d1fb4d913feaa9b0a6dc3\",\n                           
+    \"type\": 3\n                        },\n                        {\n                           
+    \"instanceID\": 0\n                        }\n                    ]\n               
+    },\n                {\n                    \"guid\": \"56b8733c15414a6db0a3d0265b4804ca\",\n                   
+    \"name\": \"Window Wall With Light\",\n                    \"prefabs\": [\n                       
+    {\n                            \"fileID\": 147410,\n                           
+    \"guid\": \"a0ffc3f89f6564d4db93360de7c64c43\",\n                           
+    \"type\": 3\n                        },\n                        {\n                           
+    \"instanceID\": 0\n                        }\n                    ]\n               
+    },\n                {\n                    \"guid\": \"b01c61730e7d40b493981fc2fd2b292b\",\n                   
+    \"name\": \"Window Wall 4\",\n                    \"prefabs\": [\n                       
+    {\n                            \"fileID\": 187744,\n                           
+    \"guid\": \"cfe3a621ddd7aee4cb64ee0caa431e12\",\n                           
+    \"type\": 3\n                        },\n                        {\n                           
+    \"instanceID\": 0\n                        }\n                    ]\n               
+    }\n            ]\n        }\n    ],\n    \"_floorGroups\": [\n        {\n           
+    \"guid\": \"3f516ea299d04a8dbcd5ef540eb117e2\",\n            \"name\": \"Floor\",\n           
+    \"_modules\": [\n                {\n                    \"guid\": \"b87edd59ba404e17a4ffc1fef2fc5910\",\n                   
+    \"name\": \"Floor Thin\",\n                    \"prefabs\": [\n                       
+    {\n                            \"fileID\": 125426,\n                           
+    \"guid\": \"64cb684f38ab4e547a77225cd823cf62\",\n                           
+    \"type\": 3\n                        },\n                        {\n                           
+    \"instanceID\": 0\n                        }\n                    ]\n               
+    },\n                {\n                    \"guid\": \"0c9cdad441674124a0162c0e3902ff91\",\n                   
+    \"name\": \"Floor Thick\",\n                    \"prefabs\": [\n                       
+    {\n                            \"fileID\": 172818,\n                           
+    \"guid\": \"cedd1289634600b4f9df04d76c4c2b4b\",\n                           
+    \"type\": 3\n                        },\n                        {\n                           
+    \"instanceID\": 0\n                        }\n                    ]\n               
+    },\n                {\n                    \"guid\": \"2e0e254cbd94401e9024cb64f73bee3c\",\n                   
+    \"name\": \"Stairs 1\",\n                    \"prefabs\": [\n                       
+    {\n                            \"fileID\": 121486,\n                           
+    \"guid\": \"996c5ca3ae0ceae41aeba2b1f9f7ec9d\",\n                           
+    \"type\": 3\n                        },\n                        {\n                           
+    \"instanceID\": 0\n                        }\n                    ]\n               
+    },\n                {\n                    \"guid\": \"5447872db32543a49297e602b86fbf71\",\n                   
+    \"name\": \"Stairs 2\",\n                    \"prefabs\": [\n                       
+    {\n                            \"fileID\": 129474,\n                           
+    \"guid\": \"9c11641965d5281408e69c5082c13c3f\",\n                           
+    \"type\": 3\n                        },\n                        {\n                           
+    \"instanceID\": 0\n                        }\n                    ]\n               
+    }\n            ]\n        }\n    ],\n    \"_decoratorGroups\": [],\n    \"_decoratorCategories\":
+    [\n        {\n            \"guid\": \"e61d0a35f3864ee9bd70a53d8ef72dca\",\n           
+    \"_name\": \"All\"\n        }\n    ]\n}"
