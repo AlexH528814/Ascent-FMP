@@ -138,6 +138,7 @@ public class Buttons : MonoBehaviour
     public IEnumerator LevelSelect()
     {
         yield return new WaitForSeconds(0.5f);
+        deathScreen.SetActive(false);
         mainMenu.SetActive(false);
         levelSelect.SetActive(true);
     }
@@ -158,8 +159,10 @@ public class Buttons : MonoBehaviour
     public IEnumerator MainMenu()
     {
         yield return new WaitForSeconds(0.5f);
-        mainMenu.SetActive(true);
+        deathScreen.SetActive(false);
         optionsMenu.SetActive(false);
+        levelSelect.SetActive(false);
+        mainMenu.SetActive(true);
     }
 
     public IEnumerator EndGame()
