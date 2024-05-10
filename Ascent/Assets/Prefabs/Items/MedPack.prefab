@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 6551524086143133786}
   - component: {fileID: 6822626938600573044}
   - component: {fileID: 117947860165150818}
+  - component: {fileID: 7311016144865614148}
   m_Layer: 0
   m_Name: MedPack
   m_TagString: Untagged
@@ -111,7 +112,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 56.77, y: 0.54, z: 22.55}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7350245026876784146}
@@ -154,3 +155,15 @@ MonoBehaviour:
   isArmor: 0
   isAmmo: 0
   amount: 30
+--- !u!114 &7311016144865614148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9022990589146873346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30aa6e195485b624893e377575984bb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -63,8 +63,8 @@ public class UpdateText : MonoBehaviour
         ArmorText.text = $"{playerHealth.armor}/{playerHealth.maxArmor}";
 
         AmmoText.text = $"{gun.currentAmmo}/{gun.maxAmmo}";
-        // WeaponText.text = $"{gun.weapon}";
-        WeaponText.text = fps.ToString();
+         WeaponText.text = $"{gun.weapon}";
+       // WeaponText.text = fps.ToString();
         goalText.text = $"Defeat All Enemies: {enemyManager.currentenemies}/{enemyManager.totalenemies}";
 
 
