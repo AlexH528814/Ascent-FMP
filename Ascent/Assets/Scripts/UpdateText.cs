@@ -27,16 +27,12 @@ public class UpdateText : MonoBehaviour
     private int frameCount;
     private float fps;
 
-
-
-
     // Start is called before the first frame update
     void Start()
     {
         timeSinceLastUpdate = 0f;
         frameCount = 0;
         fps = 0f;
-
 
         playerHealth = FindObjectOfType<PlayerHealth>().GetComponent<PlayerHealth>();
         gun = FindObjectOfType<Gun>().GetComponent<Gun>();
@@ -56,7 +52,6 @@ public class UpdateText : MonoBehaviour
             frameCount = 0;
         }
 
-
         Debug.Log(PublicVars.sfxVolume);
         Debug.Log(PublicVars.musicVolume);
         HealthText.text = $"{playerHealth.health}/{playerHealth.maxHealth}";
@@ -67,7 +62,6 @@ public class UpdateText : MonoBehaviour
        // WeaponText.text = fps.ToString();
         goalText.text = $"Defeat All Enemies: {enemyManager.currentenemies}/{enemyManager.totalenemies}";
 
-
         if (enemyManager.currentenemies <= 0 && gun.hasShot)
         {
             StartCoroutine(EndLevel());
@@ -75,14 +69,10 @@ public class UpdateText : MonoBehaviour
 
         if (PublicVars.endLevelOne && Input.GetKeyDown(KeyCode.Q))
         {
-           
             SceneManager.LoadScene("MenuScene");
         }
 
     }
-
-
-
 
     public IEnumerator EndLevel()
     {

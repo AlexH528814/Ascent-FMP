@@ -25,16 +25,4 @@ public class EnemyManager : MonoBehaviour
        //Debug.Log(totalenemies);
     }
 
-
-    public List<Enemy> enemiesInTrigger = new List<Enemy>();
-
-    public void AddEnemy(Enemy enemy)
-    {
-        enemiesInTrigger.Add(enemy);
-    }
-
-    public void RemoveEnemy(Enemy enemy)
-    {
-        enemiesInTrigger.Remove(enemy);
-    }
 }

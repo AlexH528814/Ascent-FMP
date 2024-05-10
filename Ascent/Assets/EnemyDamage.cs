@@ -6,10 +6,8 @@ public class EnemyDamage : MonoBehaviour
 {
     public bool damagingPlayer;
     private PlayerHealth playerhealth;
-
     public int damage = 10;
     public float damagecooldown;
-
     public float damagecounter;
 
     // Start is called before the first frame update
@@ -32,10 +30,5 @@ public class EnemyDamage : MonoBehaviour
             }
             damagecounter += Time.deltaTime;
         }
-
-      /*  else
-        {
-            damagecounter = 0f;
-        }*/
     }
 }

@@ -9,20 +9,17 @@ public class CameraLook : MonoBehaviour
 
     private float xMousePos;
     private float smoothedMousePos;
-
     private float currentLookingPos;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        //Cursor stuff
-
         sensitivity = PublicVars.mouseSens;
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         GetInput();
         ModifyInput();

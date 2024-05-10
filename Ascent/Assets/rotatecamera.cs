@@ -26,7 +26,7 @@ public class CameraRotator : MonoBehaviour
         Quaternion targetRotation = Quaternion.LookRotation(direction);
 
         // Smoothly rotate towards the target rotation
-        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * 0.01f);
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * 0.01f);
 
         // Check if camera is facing the target approximately
         if (Quaternion.Angle(transform.rotation, targetRotation) < 1f)
