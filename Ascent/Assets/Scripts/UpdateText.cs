@@ -52,6 +52,7 @@ public class UpdateText : MonoBehaviour
             frameCount = 0;
         }
 
+      
         Debug.Log(PublicVars.sfxVolume);
         Debug.Log(PublicVars.musicVolume);
         HealthText.text = $"{playerHealth.health}/{playerHealth.maxHealth}";
